@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    {% include "emp/navbar.html" %}
+    <h1 class="text-center my-3">Employee Management</h1>
+    <h1 class="text-center my-3">List Of Employees</h1>
+    <div class="container">
+      <div class="row">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#SNO.</th>
+                <th>Employee Name</th>
+                <th>EMPLOYEE_ID</th>
+                <th>PHONE</th>
+                <th>ADDRESS</th>
+                <th>EMAIL</th>
+                <th>DEPARTMENT</th>
+                <th>WORKING</th>
+                <th>SALARY</th>
+                <th>ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for emp in employee %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.emp_id}}</td>
+                <td>{{emp.phone}}</td>
+                <td>{{emp.address}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.working}}</td>
+                <td>{{emp.salary}}</td>
+                <td>
+                  <a href="/emp/delete-emp/{{emp.id}}" class="btn btn-danger btn-sm">Delete</a>
+                  <a href="/emp/update-emp/{{emp.id}}" class="btn btn-dark btn-sm">Update</a>
+                </td>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

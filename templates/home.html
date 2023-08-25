@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+   <div class="container" style="text-align: center">
+    {% include "navbar.html"%}
+     <h1>This is the Home Page</h1>
+       <p>Hue uhue</p>
+       {% if isActive %}
+       <div> 
+        <h2>{{name}}</h2>
+       <hr>
+       {% for p in list_of_programs %}  
+       <h1>{{p}}</h1>
+       {% endfor %}
+       </div>
+       {% endif %}
+       
+
+       <button>Contact Us</button>
+   </div>
+</body>
+</html>
